@@ -6,8 +6,16 @@ const Header = (props) => (
 )
 
 const Content = (props) => {
-    return props.parts.map(part => <p>{part[0]} {part[1]}</p>);
+    return (
+        <div>
+            <Part part={props.parts[0][0]} exercises={props.parts[0][1]} />
+            <Part part={props.parts[1][0]} exercises={props.parts[1][1]} />
+            <Part part={props.parts[2][0]} exercises={props.parts[2][1]} />
+        </div>
+    )
 }
+
+const Part = (props) => (<p>{props.part} {props.exercises}</p>)
 
 const Total = (props) => (
     <p>Number of exercises {props.count}</p>

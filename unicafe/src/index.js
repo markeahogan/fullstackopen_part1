@@ -12,19 +12,21 @@ const Statistics = ({good, neutral, bad}) => {
 
     if (all > 0){
         return (
-            <>
-            <div>good {good}</div>
-            <div>neutral {neutral}</div>
-            <div>bad {bad}</div>
-            <div>all {all}</div>
-            <div>average {average}</div>
-            <div>positive {positive * 100}%</div>
-            </>
+            <div>
+            <Statistic text="good" value={good} />
+            <Statistic text="neutral" value={neutral} />
+            <Statistic text="bad" value={bad} />
+            <Statistic text="all" value={all} />
+            <Statistic text="average" value={average} />
+            <Statistic text="positive" value={(positive*100)+'%'} />
+            </div>
         )
     } else {
         return <div>No feedback given</div>
     }
 }
+
+const Statistic = ({text, value}) => <div>{text} {value}</div>
 
 const App = () => {
     const [good, setGood] = useState(0);
